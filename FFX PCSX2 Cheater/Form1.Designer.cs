@@ -28,32 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            btnRandomInventoryStarter = new Button();
+            btnCancelScenario = new Button();
             SuspendLayout();
             // 
-            // button1
+            // btnRandomInventoryStarter
             // 
-            button1.Location = new Point(12, 21);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnRandomInventoryStarter.Location = new Point(12, 21);
+            btnRandomInventoryStarter.Name = "btnRandomInventoryStarter";
+            btnRandomInventoryStarter.Size = new Size(301, 23);
+            btnRandomInventoryStarter.TabIndex = 0;
+            btnRandomInventoryStarter.Text = "Random Inventory";
+            btnRandomInventoryStarter.UseVisualStyleBackColor = true;
+            btnRandomInventoryStarter.Click += btnRandomInventoryStarter_Click;
+            // 
+            // btnCancelScenario
+            // 
+            btnCancelScenario.Enabled = false;
+            btnCancelScenario.Location = new Point(12, 168);
+            btnCancelScenario.Name = "btnCancelScenario";
+            btnCancelScenario.Size = new Size(301, 25);
+            btnCancelScenario.TabIndex = 1;
+            btnCancelScenario.Text = "Cancel Scenario";
+            btnCancelScenario.UseVisualStyleBackColor = true;
+            btnCancelScenario.Click += btnCancelScenario_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(320, 205);
-            Controls.Add(button1);
+            Controls.Add(btnCancelScenario);
+            Controls.Add(btnRandomInventoryStarter);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
             Name = "Form1";
-            Text = "Form1";
+            Text = "FFX Custom Scenarios";
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button button1;
+        private Button btnRandomInventoryStarter;
+        private Button btnCancelScenario;
     }
 }

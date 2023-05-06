@@ -9,7 +9,7 @@ namespace FFX_PCSX2_Cheater.Addresses
 {
     public class PbirdmodAddresses : FfxAddresses
     {
-        private MemoryAddress<byte> _inventoryCountAddress;
+        private MemoryAddress<byte>? _inventoryCountAddress;
         public override MemoryAddress<byte> InventoryCounts
         {
             get
@@ -28,7 +28,7 @@ namespace FFX_PCSX2_Cheater.Addresses
             }
         }
 
-        private MemoryAddress<byte> _inventoryItemTypes;
+        private MemoryAddress<byte>? _inventoryItemTypes;
 
         public override MemoryAddress<byte> InventoryItemTypes
         {
@@ -49,5 +49,26 @@ namespace FFX_PCSX2_Cheater.Addresses
                 return _inventoryItemTypes;
             }
         }
+
+        private MemoryAddress<short>? _battleCount;
+        public override MemoryAddress<short> BattlesCount
+        {
+            get
+            {
+                if(_battleCount ==  null)
+                {
+                    _battleCount = new MemoryAddress<short>()
+                    {
+                        BaseAddress = 0x2031D1E4,
+                        UpperBound = 0,
+                        Skip = 0
+                    };
+                }
+
+                return _battleCount;
+            }
+        }
+
+       
     }
 }

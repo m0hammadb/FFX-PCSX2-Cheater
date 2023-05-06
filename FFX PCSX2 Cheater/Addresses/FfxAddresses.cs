@@ -11,5 +11,7 @@ namespace FFX_PCSX2_Cheater.Addresses
     {
         public abstract MemoryAddress<byte> InventoryCounts { get; }
         public abstract MemoryAddress<byte> InventoryItemTypes { get; }
+
+        public abstract MemoryAddress<Int16> BattlesCount { get; }
     }
 }
