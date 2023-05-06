@@ -11,5 +11,7 @@ namespace FFX_PCSX2_Cheater.Interfaces
         public Task Initialize();
 
         public Task Cancel();
+
+        public string GetCurrentScenarioInfo();
     }
 }

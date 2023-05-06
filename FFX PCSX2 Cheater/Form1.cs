@@ -48,6 +48,7 @@ namespace FFX_PCSX2_Cheater
             if (_currentScenario != null)
             {
                 _currentScenario.Cancel();
+                _currentScenario = null;
             }
             btnCancelScenario.Enabled = false;
         }
@@ -57,6 +58,17 @@ namespace FFX_PCSX2_Cheater
             btnRandomInventoryStarter.Enabled = false;
 
             btnCancelScenario.Enabled = true;
+            timer1.Enabled = true;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(_currentScenario == null)
+            {
+                return;
+            }
+
+            lblScenarioStatus.Text = _currentScenario.GetCurrentScenarioInfo();
         }
     }
 }

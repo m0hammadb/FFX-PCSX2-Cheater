@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             btnRandomInventoryStarter = new Button();
             btnCancelScenario = new Button();
+            lblScenarioStatus = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // btnRandomInventoryStarter
@@ -53,11 +56,25 @@
             btnCancelScenario.UseVisualStyleBackColor = true;
             btnCancelScenario.Click += btnCancelScenario_Click;
             // 
+            // lblScenarioStatus
+            // 
+            lblScenarioStatus.AutoSize = true;
+            lblScenarioStatus.Location = new Point(12, 47);
+            lblScenarioStatus.Name = "lblScenarioStatus";
+            lblScenarioStatus.Size = new Size(0, 15);
+            lblScenarioStatus.TabIndex = 2;
+            // 
+            // timer1
+            // 
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(320, 205);
+            Controls.Add(lblScenarioStatus);
             Controls.Add(btnCancelScenario);
             Controls.Add(btnRandomInventoryStarter);
             FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -65,11 +82,14 @@
             Name = "Form1";
             Text = "FFX Custom Scenarios";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button btnRandomInventoryStarter;
         private Button btnCancelScenario;
+        private Label lblScenarioStatus;
+        private System.Windows.Forms.Timer timer1;
     }
 }

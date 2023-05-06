@@ -18,6 +18,8 @@ namespace FFX_PCSX2_Cheater.Scenarios
 
         private const int EACH_ITEM_COUNT = 1;
         private bool _isCanceled = false;
+
+        private long _currentBattleCount = -1;
         public RandomInventoryScenario(FfxMethods methodService, int battleIntervals = 10, int maxInventoryItems = 10)
         {
             if (battleIntervals <= 0)
@@ -47,13 +49,33 @@ namespace FFX_PCSX2_Cheater.Scenarios
 
                 currentBattleCount = _methodService.GetBattleCount();
 
+                _currentBattleCount = currentBattleCount;
+
                 if (currentBattleCount == _nextBattleCount)
                 {
                     _nextBattleCount += _battleIntervals;
                     _methodService.RandomizeInventory(EACH_ITEM_COUNT, _maxInventoryItems);
                 }
+
+                // if these two conditions are met it probably means the game was changed after the scenario was started
+                if(currentBattleCount >  _nextBattleCount)
+                {
+                    _isCanceled = true;
+                }
+
+                if(_nextBattleCount - currentBattleCount > _battleIntervals)
+                {
+                    _isCanceled = true;
+                }
+
+
                 await Task.Delay(1000);
             }
+        }
+
+        public string GetCurrentScenarioInfo()
+        {
+            return $"Current BattleCount: {_currentBattleCount} - Next Inventory Reset: {_nextBattleCount}"; 
         }
     }
 }
