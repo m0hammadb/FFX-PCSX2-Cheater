@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,6 +13,7 @@ namespace FFX_PCSX2_Cheater.Models
 
         public int UpperBound { get; set; }
         
+        public int Skip { get; set; }
         public IntPtr this[int index]
         {
             get
@@ -20,7 +22,7 @@ namespace FFX_PCSX2_Cheater.Models
                 {
                     throw new ArgumentOutOfRangeException("Index out of memory location");
                 }
-                return BaseAddress + index;
+                return BaseAddress + (index * (Marshal.SizeOf(typeof(T)) + Skip));
             }
         }
     }

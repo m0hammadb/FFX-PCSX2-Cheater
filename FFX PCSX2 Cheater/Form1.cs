@@ -22,10 +22,15 @@ namespace FFX_PCSX2_Cheater
         {
             var ps = Process.GetProcessesByName("pcsx2").First();
             Random r = new Random();
-            for(int i=0; i<=_addressLib.InventoryCountAddress.UpperBound; i++)
+            for(int i=0; i<=_addressLib.InventoryItemTypes.UpperBound; i++)
             {
 
-                WinAPI.WriteMem(ps, _addressLib.InventoryCountAddress[i], new byte[] { (byte)r.Next(0,100) });
+                WinAPI.WriteMem(ps, _addressLib.InventoryItemTypes[i], new byte[] { (byte)r.Next(0,100) });
+                var count =  (int) WinAPI.ReadMem<byte>(ps, _addressLib.InventoryCounts[i])[0];
+                if (count == 0)
+                {
+                    WinAPI.WriteMem(ps, _addressLib.InventoryCounts[i], new byte[] { 1 });
+                }
             }
 
             var result = WinAPI.ReadMem<byte>(ps, 0x2031D59F);

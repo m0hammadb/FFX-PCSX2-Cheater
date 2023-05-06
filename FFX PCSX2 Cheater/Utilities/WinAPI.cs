@@ -55,7 +55,7 @@ IntPtr lpBaseAddress, byte[] lpBuffer, int dwSize, ref int lpNumberOfBytesRead);
             int readBytes = 0;
 
             var hProc = OpenProcess(ProcessAccessFlags.All, false, (int)p.Id);
-            var result = ReadProcessMemory(hProc, 0x2031D59F, bytes, 1, ref readBytes);
+            var result = ReadProcessMemory(hProc, address, bytes, size, ref readBytes);
 
             return bytes;
         }

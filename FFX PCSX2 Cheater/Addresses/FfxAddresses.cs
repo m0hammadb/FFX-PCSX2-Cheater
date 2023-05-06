@@ -9,6 +9,7 @@ namespace FFX_PCSX2_Cheater.Addresses
 {
     public abstract class FfxAddresses
     {
-        public abstract MemoryAddress<byte> InventoryCountAddress { get; }
+        public abstract MemoryAddress<byte> InventoryCounts { get; }
+        public abstract MemoryAddress<byte> InventoryItemTypes { get; }
     }
 }
