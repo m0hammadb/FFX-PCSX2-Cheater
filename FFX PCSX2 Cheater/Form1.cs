@@ -21,7 +21,8 @@ namespace FFX_PCSX2_Cheater
         {
             var ps = Process.GetProcessesByName("pcsx2").First();
 
-            var result = WinAPI.ReadMem<Int16>(ps, 0x2031D59F);
+            WinAPI.WriteMem(ps, 0x2031D59F, new byte[] { 100 });
+            var result = WinAPI.ReadMem<byte>(ps, 0x2031D59F);
 
             
         }

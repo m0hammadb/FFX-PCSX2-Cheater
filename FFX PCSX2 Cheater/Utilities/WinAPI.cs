@@ -36,10 +36,11 @@ IntPtr lpBaseAddress, byte[] lpBuffer, int dwSize, ref int lpNumberOfBytesRead);
             QueryInformation = 0x00000400,
             Synchronize = 0x00100000
         }
-        public static void WriteMem(Process p, IntPtr address, long v)
+        public static void WriteMem(Process p, IntPtr address, byte[] v)
         {
             var hProc = OpenProcess(ProcessAccessFlags.All, false, (int)p.Id);
-            var val = new byte[] { (byte)v };
+
+            var val = v;
 
             int wtf = 0;
             WriteProcessMemory(hProc, address, val, (UInt32)val.LongLength, out wtf);
