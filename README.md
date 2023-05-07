@@ -4,6 +4,8 @@ This hobby project is inspired by the FFXCutsceneRemover project. I want to crea
 Currently it has one scenario in which for every 10 battles you participate in your inventory gets fully reset and it will be filled by 10 random items, which can be anything from potion to Master Spheres.
 It will get much harder than you think specially if you don't grind
 
+Note: currently the addresses provided in the program only works in PbirdmanMod but addresses for other versions will be added later.
+
 # Program Menu
 ![inv reset 2](https://user-images.githubusercontent.com/116277578/236651655-ab826f72-1eca-43ee-9021-5451598e1733.png)
 
